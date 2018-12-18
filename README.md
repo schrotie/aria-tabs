@@ -53,11 +53,11 @@ If you want to support IE you will need to coax the ShadyCSS polyfill to actuall
 makes all tabs deletable if attribute is present
 * __data-persistent__  
 will show last opened tab (index!) when re-opening page. Pass a string that will be used as an ID for the persistent data. Uses `localStorage`.
-__data-manual__  
+* __data-manual__  
 when present, arrow key navigation will not activate but just focus tabs, activation then happens with space or enter key (useful for tabs that load additional content like whole sub-applcations)
-__data-delay__  
+* __data-delay__  
 optional delay when navigating with arrow keys - ignored when `data-manual`
-__data-label__  
+* __data-label__  
 on the tab-panels, sets the title of the tab-button
 
 Several attributes on the associated DOM are set automatically for accessibility support.
