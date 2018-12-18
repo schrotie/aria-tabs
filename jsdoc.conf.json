@@ -1,0 +1,14 @@
+{
+	"opts": {
+		"destination": "./doc/",
+		"recurse": true,
+		"separators": true
+	},
+   "plugins": ["plugins/markdown"],
+   "source": {
+		"include": ["src"],
+      "includePattern": ".+\\.(js(doc|x)?|mjs)$",
+      "excludePattern": "(^|\\/|\\\\)_"
+   },
+	"sourceType": "module"
+}

@@ -1,0 +1,81 @@
+{
+	"name": "aria-tabs",
+	"config": {
+		"port": "8080",
+		"ttd": false
+	},
+	"version": "0.0.1",
+	"license": "MIT",
+	"author": {
+		"name": "Thorsten Roggendorf",
+		"email": "junk@schrotie.de",
+		"url": "https://roggendorf.pro"
+	},
+	"description": "Accessible, responsive, themeable, small footprint tabs web component",
+	"homepage": "https://github.com/schrotie/aria-tabs#readme",
+	"bugs": {
+		"url": "https://github.com/shrotie/aria-tabs/issues",
+		"email": "junk@shrotie.de"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/schrotie/aria-tabs"
+	},
+	"files": [
+		"dist/**",
+		"src/**"
+	],
+	"directories": {
+		"doc": "doc",
+		"test": "test"
+	},
+	"keywords": [
+		"browser",
+		"javascript",
+		"web-components"
+	],
+	"browser": "index.html",
+	"devDependencies": {
+		"@babel/cli": "^7.2.0",
+		"@babel/core": "^7.2.0",
+		"@babel/preset-env": "^7.2.0",
+		"@webcomponents/webcomponentsjs": "^2.2.1",
+		"body-parser": "latest",
+		"chai": "latest",
+		"chokidar": "latest",
+		"connect": "latest",
+		"del": "latest",
+		"eslint": "latest",
+		"eslint-config-google": "latest",
+		"eslint-plugin-html": "latest",
+		"gulp": "^4.0.0",
+		"gulp-babel": "latest",
+		"gulp-better-rollup": "latest",
+		"gulp-cli": "latest",
+		"gulp-rename": "latest",
+		"gulp-replace": "latest",
+		"gulp-uglify-es": "latest",
+		"jsdoc": "latest",
+		"lsr": "latest",
+		"minimist": "latest",
+		"mocha": "latest",
+		"mocha-headless-chrome": "git+https://github.com/schrotie/mocha-headless-chrome.git",
+		"redux": "latest",
+		"rollup": "^0.67.4",
+		"serve-static": "latest",
+		"uglify-es": "latest"
+	},
+	"dependencies": {
+		"shadow-query": "latest"
+	},
+	"scripts": {
+		"build": "./node_modules/.bin/gulp",
+		"doc": "./node_modules/.bin/jsdoc  -c jsdoc.conf.json",
+		"lint": "eslint . --ext mjs,js,html --ignore-path .gitignore",
+		"start": "node ${PWD}/server.js --port $npm_package_config_port --ttd $npm_package_config_ttd &",
+		"stop": "PID=`npm run --silent pid`; if [ \"$PID\" != \"\" ]; then\nkill $PID\nfi",
+		"test": "PID=`npm run --silent pid`; if [ \"$PID\" != \"\" ]; then\nnpm run run-test\n else\nnode server.js  --port $npm_package_config_port --test true\nfi",
+		"pid": "ps aux | grep \"node ${PWD}/server.js\" | grep -v grep | awk '{print $2}'",
+		"run-test": "./node_modules/.bin/mocha-headless-chrome -f http://localhost:$npm_package_config_port/dev/test/"
+	}
+}

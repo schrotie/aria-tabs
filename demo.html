@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="module" src="dev/client/watchdog.mjs"></script>
+		<!--script src="node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script-->
+		<script type="module" src="src/aria-tabsDemo.mjs"></script>
+		<style>
+			html, body, my-tabs {margin: 0; padding: 0; height: 100%;}
+			.card {
+				width: 20em;
+				padding: 1em;
+				background: #fff;
+				box-shadow: 0 4px 9px 3px rgba(0, 0, 0, 0.3);
+				border-radius: 5px;
+				position: relative;
+			}
+			[aria-hidden="true"] [role="tabpanel"] {
+				visibility: hidden;
+				transition: visibility 0s .2s;
+			}
+			aria-tabs [role="tabpanel"] {height: 14em;}
+			aria-tabs [role="tabpanel"] p {
+				margin: 2em;
+				vertical-align: top;
+			}
+
+			[data-label="Material Themed"] {
+				--aria-tabs-fg-off: #fff;
+				--aria-tabs-fg-on: #ffcf49;
+				--aria-tabs-bg-on: #1A73E8;
+				--aria-tabs-highlight-on: #ffcf49;
+				color: #fff;
+			}
+			[data-label="Classic Themed Scroll & Delete"] {
+				--aria-tabs-fg-off: #ccd8e8;
+				--aria-tabs-bg-off: #9eaabb;
+				--aria-tabs-fg-on: #2c486f;
+				--aria-tabs-bg-on: #d6dbe2;
+				--aria-tabs-highlight-on: #0059d6;
+				color: #006dff;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="module">
+			import css        from './src/materialCss.mjs';
+			import {AriaTabs} from './src/aria-tabs.mjs';
+			import {iniCss}   from './src/aria-tabs.mjs';
+
+			const template = `
+			<style>
+				${css}
+				[role="tablist"] {
+					--aria-tabs-bg-on: #3d00c3;
+					--aria-tabs-fg-on: #fff;
+					--aria-tabs-fg-off: #949494;
+					--aria-tabs-highlight-on: #fffea4;
+				}
+				button[role="tab"] {
+					text-transform: none;
+					font-variant: small-caps;
+				}
+				::slotted(*) {
+					background: #fffea4;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			</style>
+			<div role="tablist" id="tablist"></div>
+			<slot></slot>`;
+			iniCss(template, 'my-tabs').then(ini =>
+				window.customElements.define('my-tabs', class extends AriaTabs {
+					constructor() {
+						super(template);
+						ini(this);
+					}
+					renderTabs(labels) {this.tablist.append({
+						array: labels,
+						template: this.tabTemplate.replace('> <', '><span> </span><'),
+						update: (tab, label, idx) =>
+							tab.attr('id', `aria-tab-${idx}`).query('span').text(label),
+					});}
+				})
+			);
+		</script>
+		<my-tabs data-persistent="demo">
+			<div data-label="Classic Default"><div class="card">
+				<aria-tabs>
+					<div data-label="Nils Frahm">
+						<p>Nils Frahm is a German musician, composer and record producer based in Berlin. He is known for combining classical and electronic music and for an unconventional approach to the piano in which he mixes a grand piano, upright piano, Roland Juno-60, Rhodes piano, drum machine, and Moog Taurus.</p>
+					</div>
+					<div data-label="Agnes Obel">
+						<p>Agnes Caroline Thaarup Obel is a Danish singer/songwriter. Her first album, Philharmonics, was released by PIAS Recordings on 4 October 2010 in Europe. Philharmonics was certified gold in June 2011 by the Belgian Entertainment Association (BEA) for sales of 10,000 Copies.</p>
+					</div>
+					<div data-label="Joke">
+						<p>Fear of complicated buildings:</p>
+						<p>A complex complex complex.</p>
+					</div>
+				</aria-tabs>
+			</div></div>
+			<div data-label="Material Themed"><div class="card">
+				<aria-tabs data-theme="material">
+					<div data-label="Nils F.">
+						<p>Nils Frahm is a German musician, composer and record producer based in Berlin. He is known for combining classical and electronic music and for an unconventional approach to the piano in which he mixes a grand piano, upright piano, Roland Juno-60, Rhodes piano, drum machine, and Moog Taurus.</p>
+					</div>
+					<div data-label="Agnes O.">
+						<p>Agnes Caroline Thaarup Obel is a Danish singer/songwriter. Her first album, Philharmonics, was released by PIAS Recordings on 4 October 2010 in Europe. Philharmonics was certified gold in June 2011 by the Belgian Entertainment Association (BEA) for sales of 10,000 Copies.</p>
+					</div>
+					<div data-label="Joke">
+						<p>Fear of complicated buildings:</p>
+						<p>A complex complex complex.</p>
+					</div>
+				</aria-tabs>
+			</div></div>
+			<div data-label="Material Scroll & Delete"><div class="card">
+				<aria-tabs data-deletable data-theme="material" data-manual>
+					<div data-label="Nils Frahm">
+						<p>Nils Frahm is a German musician, composer and record producer based in Berlin. He is known for combining classical and electronic music and for an unconventional approach to the piano in which he mixes a grand piano, upright piano, Roland Juno-60, Rhodes piano, drum machine, and Moog Taurus.</p>
+					</div>
+					<div data-label="Agnes Obel">
+						<p>Agnes Caroline Thaarup Obel is a Danish singer/songwriter. Her first album, Philharmonics, was released by PIAS Recordings on 4 October 2010 in Europe. Philharmonics was certified gold in June 2011 by the Belgian Entertainment Association (BEA) for sales of 10,000 Copies.</p>
+					</div>
+					<div data-label="Joke">
+						<p>Fear of complicated buildings:</p>
+						<p>A complex complex complex.</p>
+					</div>
+					<div data-label="Looooooooong Label"><p>Bar</p></div>
+				</aria-tabs>
+			</div></div>
+			<div data-label="Classic Themed Scroll & Delete"><div class="card">
+				<aria-tabs data-deletable data-theme="classic" data-delay="1000">
+					<div data-label="Nils Frahm">
+						<p>Nils Frahm is a German musician, composer and record producer based in Berlin. He is known for combining classical and electronic music and for an unconventional approach to the piano in which he mixes a grand piano, upright piano, Roland Juno-60, Rhodes piano, drum machine, and Moog Taurus.</p>
+					</div>
+					<div data-label="Agnes Obel">
+						<p>Agnes Caroline Thaarup Obel is a Danish singer/songwriter. Her first album, Philharmonics, was released by PIAS Recordings on 4 October 2010 in Europe. Philharmonics was certified gold in June 2011 by the Belgian Entertainment Association (BEA) for sales of 10,000 Copies.</p>
+					</div>
+					<div data-label="Joke">
+						<p>Fear of complicated buildings:</p>
+						<p>A complex complex complex.</p>
+					</div>
+					<div data-label="Looooooooong Label"><p>Bar</p></div>
+				</aria-tabs>
+			</div></div>
+		</my-tabs>
+	</body>
+</html>

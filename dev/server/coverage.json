@@ -1,0 +1,219 @@
+{
+	"missing": [
+		"src/aria-tabsClassic.mjs",
+		"src/aria-tabsDemo.mjs",
+		"src/aria-tabsMaterial.mjs",
+		"src/classicCss.mjs",
+		"src/cssCommon.mjs",
+		"src/materialCss.mjs"
+	],
+	"file": [
+		{
+			"totalBytes": 13518,
+			"ranges": [
+				{
+					"start": 0,
+					"end": 939
+				},
+				{
+					"start": 1260,
+					"end": 1263
+				},
+				{
+					"start": 1874,
+					"end": 1877
+				},
+				{
+					"start": 2115,
+					"end": 2118
+				},
+				{
+					"start": 2280,
+					"end": 2283
+				},
+				{
+					"start": 2586,
+					"end": 2589
+				},
+				{
+					"start": 2732,
+					"end": 2735
+				},
+				{
+					"start": 2906,
+					"end": 2909
+				},
+				{
+					"start": 3331,
+					"end": 3334
+				},
+				{
+					"start": 3583,
+					"end": 3586
+				},
+				{
+					"start": 3771,
+					"end": 3774
+				},
+				{
+					"start": 3902,
+					"end": 3905
+				},
+				{
+					"start": 4415,
+					"end": 4418
+				},
+				{
+					"start": 4737,
+					"end": 4740
+				},
+				{
+					"start": 5007,
+					"end": 5010
+				},
+				{
+					"start": 5262,
+					"end": 5264
+				},
+				{
+					"start": 5451,
+					"end": 5454
+				},
+				{
+					"start": 5573,
+					"end": 5576
+				},
+				{
+					"start": 5989,
+					"end": 5992
+				},
+				{
+					"start": 6206,
+					"end": 6209
+				},
+				{
+					"start": 6366,
+					"end": 6369
+				},
+				{
+					"start": 6554,
+					"end": 6620
+				},
+				{
+					"start": 6708,
+					"end": 6738
+				},
+				{
+					"start": 7314,
+					"end": 7342
+				},
+				{
+					"start": 7628,
+					"end": 7631
+				},
+				{
+					"start": 7962,
+					"end": 7965
+				},
+				{
+					"start": 8107,
+					"end": 8110
+				},
+				{
+					"start": 8464,
+					"end": 8467
+				},
+				{
+					"start": 8526,
+					"end": 8528
+				},
+				{
+					"start": 8587,
+					"end": 8590
+				},
+				{
+					"start": 8655,
+					"end": 8657
+				},
+				{
+					"start": 8722,
+					"end": 8725
+				},
+				{
+					"start": 8841,
+					"end": 8844
+				},
+				{
+					"start": 9326,
+					"end": 9329
+				},
+				{
+					"start": 9422,
+					"end": 9424
+				},
+				{
+					"start": 9602,
+					"end": 9604
+				},
+				{
+					"start": 9639,
+					"end": 9805
+				},
+				{
+					"start": 10173,
+					"end": 10260
+				},
+				{
+					"start": 10796,
+					"end": 10833
+				},
+				{
+					"start": 11475,
+					"end": 11517
+				},
+				{
+					"start": 11771,
+					"end": 11807
+				},
+				{
+					"start": 11862,
+					"end": 11865
+				},
+				{
+					"start": 12064,
+					"end": 12066
+				},
+				{
+					"start": 12308,
+					"end": 12343
+				},
+				{
+					"start": 12556,
+					"end": 12649
+				},
+				{
+					"start": 12782,
+					"end": 12785
+				},
+				{
+					"start": 12840,
+					"end": 12851
+				},
+				{
+					"start": 13046,
+					"end": 13055
+				},
+				{
+					"start": 13286,
+					"end": 13288
+				}
+			],
+			"usedBytes": 1680,
+			"url": "src/aria-tabs.mjs",
+			"uncoveredWhiteSpaces": 1923,
+			"coveredBytes": 3603,
+			"ratio": 0.2665335108743897
+		}
+	],
+	"ratio": 0.2665335108743897
+}
